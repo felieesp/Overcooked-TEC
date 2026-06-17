@@ -3,9 +3,7 @@ import os
 
 pygame.init()
 
-# -----------------------------
-# CONFIGURACIÓN
-# -----------------------------
+
 ANCHO = 1000
 ALTO = 700
 
@@ -17,10 +15,6 @@ RELOJ = pygame.time.Clock()
 BLANCO = (255, 255, 255)
 objetos = []
 
-
-# -----------------------------
-# CLASES
-# -----------------------------
 
 
 class Ingrediente:
@@ -123,9 +117,6 @@ class Cocina:
         )
 
 
-# -----------------------------
-# IMÁGENES
-# -----------------------------
 
 CARPETA = "Personajes"
 
@@ -147,9 +138,7 @@ for archivo in ARCHIVOS:
 
     imagenes.append(img)
 
-# -----------------------------
-# COCINA Y CHEFS
-# -----------------------------
+
 
 cocina = Cocina()
 
@@ -160,12 +149,9 @@ chef4 = Chef("Chef4", imagenes[3], 300, 400)
 
 cocina.chefs.extend([chef1, chef2, chef3, chef4])
 
-indice_jugador1 = 0      # Chef1 o Chef2
-indice_jugador2 = 2      # Chef3 o Chef4
+indice_jugador1 = 0      
+indice_jugador2 = 2      
 
-# -----------------------------
-# BUCLE
-# -----------------------------
 
 ejecutando = True
 
@@ -180,7 +166,7 @@ while ejecutando:
 
         if evento.type == pygame.KEYDOWN:
 
-            # Cambia entre Chef1 y Chef2
+     
             if evento.key == pygame.K_TAB:
 
                 if indice_jugador1 == 0:
@@ -188,7 +174,7 @@ while ejecutando:
                 else:
                     indice_jugador1 = 0
 
-            # Cambia entre Chef3 y Chef4
+
             if evento.key == pygame.K_RSHIFT:
 
                 if indice_jugador2 == 2:
@@ -201,7 +187,7 @@ while ejecutando:
     jugador1 = cocina.chefs[indice_jugador1]
     jugador2 = cocina.chefs[indice_jugador2]
 
-    # WASD
+
     if teclas[pygame.K_w]:
         jugador1.mover(0, -jugador1.velocidad)
 
@@ -214,7 +200,6 @@ while ejecutando:
     if teclas[pygame.K_d]:
         jugador1.mover(jugador1.velocidad, 0)
 
-    # Flechas
     if teclas[pygame.K_UP]:
         jugador2.mover(0, -jugador2.velocidad)
 
